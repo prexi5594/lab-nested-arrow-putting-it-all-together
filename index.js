@@ -19,4 +19,15 @@ function createLoginTracker(userInfo) {
     };
 }
 
+
+// Example test
+const user = { username: "userA", password: "5594" };
+const login = createLoginTracker(user);
+
+console.log(login("userA", "wrong"));  // Incorrect login. Attempts left: 2
+console.log(login("userA", "wrong"));  // Incorrect login. Attempts left: 1
+console.log(login("userA", "wrong"));  // Account locked. Too many failed attempts.
+console.log(login("userA", "5594"));   // Account locked. Too many failed attempts.
+
+
 module.exports = { createLoginTracker };
